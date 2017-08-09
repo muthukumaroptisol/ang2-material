@@ -16,11 +16,19 @@
   <md-sidenav #start  mode="side">
     <md-nav-list>
     	<a md-list-item routerLink="/home">Dashboard</a>
-        <a md-list-item routerLink="/user">User Management</a>
+        <a md-list-item routerLink="/datatable">User Management</a>
         <a md-list-item href="page2.html">Role Management</a>            
     </md-nav-list>
   </md-sidenav>
   <!-- Main content start -->
+  		<h3 md-subheader>Users list</h3>
+  		<md-card>
+		    <button md-mini-fab>
+		    <a routerLink="/addUser" >
+		      <md-icon class="md-24">add</md-icon>
+		    </a>
+		    </button>
+		  </md-card>
 
 		<div class="example-container mat-elevation-z8">
 
@@ -59,7 +67,11 @@
 
 		    <ng-container  cdkColumnDef="Action">
 		      <md-header-cell *cdkHeaderCellDef> Action </md-header-cell>
-		        <md-cell *cdkCellDef="let row"> asdf </md-cell>    
+		        <md-cell *cdkCellDef="let row"> 
+		        <button md-raised-button>Edit</button>
+		        <button md-raised-button>Delete</button>
+		        </md-cell>  
+		       
 		    </ng-container>
 
 		    <!-- <md-button class="md-icon-button md-primary" aria-label="Editar"

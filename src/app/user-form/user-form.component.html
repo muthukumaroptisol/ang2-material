@@ -1,0 +1,66 @@
+<md-toolbar color="primary">
+    <button md-icon-button (click)="start.toggle()">
+        <md-icon class="md-24" >menu</md-icon>
+        <span class="app-action">
+          <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
+        </span>        
+    </button>
+</md-toolbar>
+
+<md-sidenav-container class="demo-sidenav-container">
+  <md-sidenav #start  mode="side">
+    <md-nav-list>
+    	<a md-list-item routerLink="/home">Dashboard</a>
+        <a md-list-item routerLink="/datatable">User Management</a>
+        <a md-list-item href="page2.html">Role Management</a>            
+    </md-nav-list>
+  </md-sidenav>
+
+  <!-- <md-sidenav #end align="end">
+    End Side Drawer
+    <br>
+    <button md-button (click)="end.close()">Close</button>
+  </md-sidenav> -->
+
+  	<div class="demo-sidenav-content">
+		  <h1>User add</h1> 
+
+		  <!-- Start user form -->
+
+		  	<a md-fab routerLink="/datatable"><md-icon class="md-24">keyboard_arrow_left</md-icon></a>
+  
+			  <div class="group">
+
+			    <form role="form" (submit)="login()"><br>
+			      <md-input-container>
+			        <input mdInput type="text" required  id="username" name="username" >
+			        <md-placeholder>
+			          <i class="material-icons app-input-icon">face</i>First name
+			        </md-placeholder>
+			      </md-input-container><br><br>
+			      <md-input-container>
+			        <input mdInput type="text" required  id="username" name="username" >
+			        <md-placeholder>
+			          <i class="material-icons app-input-icon">face</i>Last name
+			        </md-placeholder>
+			      </md-input-container><br><br>
+			      <md-input-container>
+			        <input mdInput type="text" required  id="username" name="username" >
+			        <md-placeholder>
+			          <i class="material-icons app-input-icon">email</i>Email address
+			        </md-placeholder>
+			      </md-input-container><br><br>
+			      <md-input-container>
+			        <input mdInput type="password" required  id="password" name="password" >
+			        <md-placeholder >
+			          <i class="material-icons app-input-icon">lock_open</i>Password
+			        </md-placeholder>
+			      </md-input-container><br><br>
+			      <button md-raised-button color="warn" type="submit" name="action">Save</button><br><br>
+			      <span id="err"><small>{{errorMsg}}</small></span>			      
+			    </form >
+			  </div>
+			
+		  <!-- end user form -->		  
+	</div>
+  </md-sidenav-container>

@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdTableModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule }   from '@angular/router';
 import { CdkTableModule } from '@angular/cdk';
-import { MdTableModule } from '@angular/material'
+
+// import { MdTableModule } from '@angular/material'
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import {UserServiceNew} from './data-table-example/user-services';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DataTableExampleComponent } from './data-table-example/data-table-example.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { DataTableExampleComponent } from './data-table-example/data-table-examp
     LeftMenuComponent,
     DashboardComponent,
     ToolbarComponent,
-    DataTableExampleComponent
+    DataTableExampleComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { DataTableExampleComponent } from './data-table-example/data-table-examp
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },
        { path: 'user', component: UserComponent},
-      // { path: 'test', component: TestComponent},
+      { path: 'addUser', component: UserFormComponent},
       { path: 'datatable', component: DataTableExampleComponent},
       { path: '', component: LoginComponent },
       // { path: '**', component: LoginComponent },

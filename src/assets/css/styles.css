@@ -54,3 +54,9 @@ md-toolbar-row {
 {
   padding: 8px 0 !important;
 }
+
+/* add user button */
+md-mini-fab {
+  justify-content: space-between;
+}
+

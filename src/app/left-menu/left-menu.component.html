@@ -1,0 +1,99 @@
+<!-- <md-sidenav-container >
+  <md-sidenav #sidenav mode="side">
+    <md-toolbar>
+        
+        <md-toolbar-row>
+            <span>First Row</span>
+        </md-toolbar-row>
+        <md-toolbar-row>
+            <span>Second Row</span>
+        </md-toolbar-row>
+        <md-toolbar-row>
+            <span>Third Row</span>
+        </md-toolbar-row>
+    </md-toolbar>
+  </md-sidenav>
+
+<md-toolbar color="primary">
+    <button md-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+    </button>
+    <span>My App</span>
+</md-toolbar>
+</md-sidenav-container> -->
+
+
+
+<!-- <span>First Row</span> -->
+<!-- <div class="margin-left-right-50">
+    <div>
+        <h3 class="primary-color">
+            Snackbar displaying string
+        </h3>
+    </div>
+
+<div>
+        <button md-raised-button color="primary" (click)="openSnackBar()">Click to see snack bar</button>
+    </div>
+
+<div>
+        <h3 class="primary-color">
+            Snackbar displaying component
+        </h3>
+    </div>
+
+<div>
+        <button md-raised-button color="primary" (click)="openSnackBarComponent()">Click to see snack bar</button>
+    </div>
+
+<h3 class="primary-color">
+        Stacked Toolbar
+    </h3>
+
+<div>
+        <md-toolbar>
+            <span>First Row</span>
+
+<md-toolbar-row>
+                <span>Second Row</span>
+            </md-toolbar-row>
+
+<md-toolbar-row>
+                <span>Third Row</span>
+            </md-toolbar-row>
+        </md-toolbar>
+    </div>
+</div> -->
+
+
+<md-toolbar color="primary">
+    <button md-icon-button (click)="start.toggle()">
+        <md-icon class="md-24" >menu</md-icon>
+        <span class="app-action">
+          <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
+        </span>        
+    </button>
+</md-toolbar>
+
+<md-sidenav-container class="demo-sidenav-container">
+  <md-sidenav #start  mode="side">
+    <md-nav-list>
+    	<a md-list-item href="page1.html">Dashboard</a>
+        <a md-list-item href="page1.html">User Management</a>
+        <a md-list-item href="page2.html">Role Management</a>            
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-sidenav #end align="end">
+    End Side Drawer
+    <br>
+    <button md-button (click)="end.close()">Close</button>
+  </md-sidenav>
+
+  	<div class="demo-sidenav-content">
+		  <h1>Dashboard</h1>   
+		  <button md-button>HELLO</button>
+		  <button md-raised-button class="mat-primary">HELLO</button>
+		  <button md-fab class="mat-accent">HI</button>
+	</div>
+  </md-sidenav-container>

@@ -1,0 +1,52 @@
+<md-toolbar color="primary">
+    <button md-icon-button (click)="start.toggle()">
+        <md-icon class="md-24" >menu</md-icon>
+        <span class="app-action">
+          <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
+        </span>        
+    </button>
+</md-toolbar>
+
+<!-- <app-toolbar></app-toolbar> -->
+<md-sidenav-container class="demo-sidenav-container">
+  <md-sidenav #start  mode="side">
+    <md-nav-list>
+    	<a md-list-item routerLink="/home">Dashboard</a>
+        <a md-list-item routerLink="/user">User Management</a>
+        <a md-list-item href="page2.html">Role Management</a>            
+    </md-nav-list>
+  </md-sidenav>
+
+  <!-- <md-sidenav #end align="end">
+    End Side Drawer
+    <br>
+    <button md-button (click)="end.close()">Close</button>
+  </md-sidenav> -->
+
+  <div class="demo-sidenav-content">		  
+      <!-- START -->
+        <div class="example-container mat-elevation-z8">
+          <md-table #table [dataSource]="dataSource">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- ID Column -->
+            <ng-container cdkColumnDef="user_name">
+              <md-header-cell *cdkHeaderCellDef> User Name </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.user_name}} </md-cell>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container cdkColumnDef="mobile_number">
+              <md-header-cell *cdkHeaderCellDef> Mobile Number </md-header-cell>
+              <md-cell *cdkCellDef="let row"> {{row.mobile_number}} </md-cell>
+            </ng-container>
+
+            <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+            <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+          </md-table>
+        </div>
+      <!-- END -->  
+	</div>
+  </md-sidenav-container>

@@ -1,0 +1,29 @@
+<md-toolbar color="primary">
+    <button md-icon-button (click)="start.toggle()">
+        <md-icon class="md-24" >menu</md-icon>
+        <span class="app-action">
+          <button md-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>
+        </span>        
+    </button>
+</md-toolbar>
+
+<md-sidenav-container class="demo-sidenav-container">
+  <md-sidenav #start  mode="side">
+    <md-nav-list>
+    	<a md-list-item routerLink="/home">Dashboard</a>
+        <a md-list-item routerLink="/user">User Management</a>
+        <a md-list-item href="page2.html">Role Management</a>            
+    </md-nav-list>
+  </md-sidenav>
+
+  <!-- <md-sidenav #end align="end">
+    End Side Drawer
+    <br>
+    <button md-button (click)="end.close()">Close</button>
+  </md-sidenav> -->
+
+  	<div class="demo-sidenav-content">
+		  <h1>Dashboard</h1>   
+		  
+	</div>
+  </md-sidenav-container>

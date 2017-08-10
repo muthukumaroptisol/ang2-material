@@ -4,16 +4,18 @@ import { ExampleDataSource, ExampleDatabase } from './database';
 import { MdPaginator } from '@angular/material';
 
 
+
 @Component({
   selector: 'app-data-table-example',
   templateUrl: './data-table-example.component.html',
   styleUrls: ['./data-table-example.component.css']
 })
+
 export class DataTableExampleComponent implements OnInit {
   
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
-  displayedColumns = ['userId', 'userName', 'createdDate', 'Action'];
+  displayedColumns = ['userId', 'firstName', 'lastName', 'email', 'Action'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
 
@@ -21,8 +23,8 @@ export class DataTableExampleComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);    
-  	this.service.getTableData().subscribe(data => {
-    	this.exampleDatabase.loadData(data);        
+  	this.service.getUserData().subscribe(userResponse => {
+      this.exampleDatabase.loadData(userResponse.data);        
     });    
   }
 

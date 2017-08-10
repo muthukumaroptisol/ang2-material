@@ -6,15 +6,16 @@ import 'rxjs/add/operator/map';
 @Injectable()
 
 export class AuthenticationService {
-	users;
+	// users;
 	url: string;
 	
 	constructor(private http: Http) {
-		this.url = "http://45.55.48.150:1347";
+		// this.url = "http://45.55.48.150:1347";
+		this.url = "http://localhost:4040";
 	}
 	
 	checkAuthentication(username: string, password: string) {
-		return this.http.post(this.url+'/login', JSON.stringify({email: username,password:password, user_type: 2}))
+		return this.http.post(this.url+'/api/auth/login', {email: username,password:password})
 		.map((response: Response) => response.json());
 	}
 

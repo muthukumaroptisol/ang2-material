@@ -16,7 +16,7 @@
   <md-sidenav #start  mode="side">
     <md-nav-list>
     	<a md-list-item routerLink="/home">Dashboard</a>
-        <a md-list-item routerLink="/datatable">User Management</a>
+        <a md-list-item routerLink="/users">User Management</a>
         <a md-list-item href="page2.html">Role Management</a>            
     </md-nav-list>
   </md-sidenav>
@@ -50,14 +50,19 @@
 		    </ng-container> -->
 
 		    <!-- Name Column -->
-		    <ng-container cdkColumnDef="userName">
-		      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-		      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+		    <ng-container cdkColumnDef="firstName">
+		      <md-header-cell *cdkHeaderCellDef> First Name </md-header-cell>
+		      <md-cell *cdkCellDef="let row"> {{row.firstName}} </md-cell>
 		    </ng-container>
 
-		    <ng-container cdkColumnDef="createdDate">
-		      <md-header-cell *cdkHeaderCellDef> Created Date </md-header-cell>
-		      <md-cell *cdkCellDef="let row"> {{row.createdAt}} </md-cell>
+		    <ng-container cdkColumnDef="lastName">
+		      <md-header-cell *cdkHeaderCellDef> Last Name </md-header-cell>
+		      <md-cell *cdkCellDef="let row"> {{row.lastName}} </md-cell>
+		    </ng-container>
+
+		    <ng-container cdkColumnDef="email">
+		      <md-header-cell *cdkHeaderCellDef> Email </md-header-cell>
+		      <md-cell *cdkCellDef="let row"> {{row.email}} </md-cell>
 		    </ng-container>
 
 		    <!-- <ng-container cdkColumnDef="Subcategory">
@@ -67,8 +72,11 @@
 
 		    <ng-container  cdkColumnDef="Action">
 		      <md-header-cell *cdkHeaderCellDef> Action </md-header-cell>
-		        <md-cell *cdkCellDef="let row"> 
-		        <button md-raised-button>Edit</button>
+		        <md-cell *cdkCellDef="let row">
+		       <a [routerLink]="['/addUser']" [queryParams]="{id:row.id}" >
+		        <!-- <a routerLink="/addUser?id={{row.id}}" > --> 
+		        	<button md-raised-button>Edit</button>
+		        </a>
 		        <button md-raised-button>Delete</button>
 		        </md-cell>  
 		       

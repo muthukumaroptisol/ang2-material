@@ -6,9 +6,11 @@ import { MdPaginator } from '@angular/material';
 
 export interface UserData {
   id: number;
-  name: string;
-  createdAt: string;
-  subcategory: any;
+  firstName: string;
+  lastName: string;
+  email: string;
+  activeStatus: number;
+  deleteStatus: number;
 }
 
 export class ExampleDatabase {
@@ -26,23 +28,20 @@ export class ExampleDataSource extends DataSource<any> {
     super();
   }
 
-  /*connect(): Observable<UserData[]> {
-    return this._exampleDatabase.dataChange;
-  }*/
+ 
+connect(): Observable<UserData[]> {
+    const displayDataChanges = [
+      this._exampleDatabase.dataChange,
+      this._paginator.page,
+    ];
 
-	connect(): Observable<UserData[]> {
-	    const displayDataChanges = [
-	      this._exampleDatabase.dataChange,
-	      this._paginator.page,
-	    ];
+    return Observable.merge(...displayDataChanges).map(() => {
+      const data = this._exampleDatabase.data.slice();
 
-	    return Observable.merge(...displayDataChanges).map(() => {
-	      const data = this._exampleDatabase.data.slice();
-
-	      const startIndex = this._paginator.pageIndex * this._paginator.pageSize;
-	      return data.splice(startIndex, this._paginator.pageSize);
-	    });
-	  }
+      const startIndex = this._paginator.pageIndex * this._paginator.pageSize;
+      return data.splice(startIndex, this._paginator.pageSize);
+    });
+  }
 
   disconnect() {}
 }

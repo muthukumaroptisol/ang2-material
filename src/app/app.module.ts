@@ -49,7 +49,7 @@ import { UserFormComponent } from './user-form/user-form.component';
       { path: 'home', component: HomeComponent },
        { path: 'user', component: UserComponent},
       { path: 'addUser', component: UserFormComponent},
-      { path: 'datatable', component: DataTableExampleComponent},
+      { path: 'users', component: DataTableExampleComponent},
       { path: '', component: LoginComponent },
       // { path: '**', component: LoginComponent },
 

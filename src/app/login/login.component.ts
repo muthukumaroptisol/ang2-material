@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-// import { AuthenticateService } from "./loginService/authenticate.service";
-/*import { UserComponent } from "../user/user.component";*/
+import { MdSnackBar } from '@angular/material';
 import { AuthenticationService } from '../_services/index';
 
 @Component({
@@ -11,16 +10,19 @@ import { AuthenticationService } from '../_services/index';
   // providers : [AuthenticateService]
 })
 export class LoginComponent implements OnInit {
+  
   loginModel: any = {};
   returnUrl: string;
-
+  message: string;
+  action: string;
   /*public user = new UserComponent('','');
   public errorMsg = '';*/
 
   constructor(
     private AuthService:AuthenticationService,
     private router: ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private _materialSnackBar: MdSnackBar
   ) { }
 
   ngOnInit() { }
@@ -35,15 +37,25 @@ export class LoginComponent implements OnInit {
     this.AuthService.checkAuthentication(this.loginModel.username,this.loginModel.password)
     .subscribe(user => {
       if(user && user.token) {
-          localStorage.setItem('currentUserToken', user.token);
-          this.route.navigate(['/home']);
-          //this.route.navigate(['/home']/*, { queryParams: { test:4444}}*/);
-      } else {
-        console.log('Username and password is wrong');
+        this.message = 'You have logged successfully';
+        this.action = "";  
+        localStorage.setItem('currentUserToken', user.token);
+        this.route.navigate(['/home']);
+      } else {        
+        this.message = 'Username and password is wrong';
+        this.action = "";        
       }
 
+      this._materialSnackBar.open(this.message, this.action, {
+        duration: 6000,
+      });
     }, error => {
       console.log(error);
+       this.message = 'Username and password is wrong';
+      this.action = ""; 
+      this._materialSnackBar.open(this.message, this.action, {
+        duration: 6000,
+      });
     });
   }
 }

@@ -22,6 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DataTableExampleComponent } from './data-table-example/data-table-example.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { UserFormComponent } from './user-form/user-form.component';
     BrowserAnimationsModule,
     CdkTableModule,
     MdTableModule,
+    FlexLayoutModule,
     RouterModule.forRoot([
       { path: 'login', component:LoginComponent },
       { path: 'home', component: HomeComponent },

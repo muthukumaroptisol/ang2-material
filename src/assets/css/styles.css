@@ -1,5 +1,5 @@
 .demo-sidenav-container {
-  border: 3px solid black;
+  
 
   .mat-sidenav-focus-trap > .cdk-focus-trap-content {
     padding: 10px;
@@ -20,6 +20,11 @@ body
     font-family: Roboto, sans-serif;
 }
 
+md-sidenav-container
+{
+  min-height: 538px;
+}
+
 / Structure /
 .example-container {
   display: flex;
@@ -38,6 +43,7 @@ body
 
 .mat-table {
   overflow: auto;
+  margin: auto 20px;
 }
 
 md-toolbar-row {
@@ -55,8 +61,40 @@ md-toolbar-row {
   padding: 8px 0 !important;
 }
 
-/* add user button */
-md-mini-fab {
-  justify-content: space-between;
+.subheader-custom-style
+{
+  width: 95%;
+  display: inline-block !important; 
 }
-
+.header-color
+{
+  background-color: #ffebcc;
+}
+.nav-bg-color
+{
+  background-color: #3a1211;
+  box-shadow: 2px 0px 10px grey;
+}
+.nav-text-color
+{
+  border-bottom: 1px solid #ffebcc;
+  color: #ffebcc !important;
+}
+.link-color
+{
+  color: #3f51b5;
+}
+.user-form-style
+{
+  margin: 0px auto !important;
+  padding: 1em 2em !important;
+  background-color: white !important;
+}
+.text-align-center
+{
+  text-align: center;
+}
+md-input-container
+{
+  width: 100%;
+}

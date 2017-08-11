@@ -1,34 +1,27 @@
-
-<md-toolbar color="primary">
-
-    <span>
-    <button md-icon-button (click)="start.toggle()">
-        <md-icon class="md-24" >menu</md-icon>
-                
-    </button>
-    </span>
-    <button md-fab (click)="logout()" class="logout-button-style"><md-icon class="logout-icon-style">exit_to_app</md-icon></button>
-        
+<md-toolbar class="header-color">
+	<span>
+	<button md-icon-button (click)="start.toggle()">
+		<md-icon class="md-24" >menu</md-icon>                
+	</button>
+	</span>
+	<button md-mini-fab (click)="logout()"><md-icon>exit_to_app</md-icon></button>        
 </md-toolbar>
 
-<!-- <app-toolbar></app-toolbar> -->
 <md-sidenav-container class="demo-sidenav-container">
-  <md-sidenav #start  mode="side">
-    <md-nav-list>
-    	<a md-list-item routerLink="/home">Dashboard</a>
-        <a md-list-item routerLink="/users">User Management</a>
-        <a md-list-item href="page2.html">Role Management</a>            
-    </md-nav-list>
+  <md-sidenav #start  mode="side" class="nav-bg-color">
+	<md-nav-list>
+		<a md-list-item class="nav-text-color" routerLink="/home">Dashboard</a>
+		<a md-list-item class="nav-text-color" routerLink="/users">User Management</a>
+		<a md-list-item class="nav-text-color" href="page2.html">Role Management</a>            
+	</md-nav-list>
   </md-sidenav>
   <!-- Main content start -->
-  		<h3 md-subheader>Users list</h3>
-  		<md-card>
-		    <button md-mini-fab>
-		    <a routerLink="/addUser" >
-		      <md-icon class="md-24">add</md-icon>
-		    </a>
-		    </button>
-		  </md-card>
+  		<div>
+	  		<h3 md-subheader class="subheader-custom-style">Users list</h3>
+			<button md-mini-fab routerLink="/addUser">
+				<md-icon class="md-24">add</md-icon>
+			</button>
+		</div>
 
 		<div class="example-container mat-elevation-z8">
 
@@ -73,11 +66,8 @@
 		    <ng-container  cdkColumnDef="Action">
 		      <md-header-cell *cdkHeaderCellDef> Action </md-header-cell>
 		        <md-cell *cdkCellDef="let row">
-		       <a [routerLink]="['/addUser']" [queryParams]="{id:row.id}" >
-		        <!-- <a routerLink="/addUser?id={{row.id}}" > --> 
-		        	<button md-raised-button>Edit</button>
-		        </a>
-		        <button md-raised-button>Delete</button>
+		        <a class="link-color" href="" [routerLink]="['/addUser']" [queryParams]="{id:row.id}" ><i class="material-icons">create</i></a>
+		        <a class="link-color" href=""><i class="material-icons">delete</i></a>
 		        </md-cell>  
 		       
 		    </ng-container>

@@ -46,8 +46,8 @@ export class UserFormComponent implements OnInit {
 		this.userModel.roleId = 1;
 
 		if(this.editMode === true) {
-			let id = this.userModel.userId;
-			delete this.userModel.userId;
+			let id = this.userModel.id;
+			delete this.userModel.id;
 			this._service.updateUserData(this.userModel,id)
 			.subscribe(data => {
 				if(data.status === true) {
@@ -92,9 +92,7 @@ export class UserFormComponent implements OnInit {
 		.subscribe(data => {
 			if(data.status === true) {
 				this.userModel = data.data;
-				console.log("MMMMMMMMMMMMM");
-				console.log(this.userModel);
-				console.log("MMMMMMMMMMMMM");				
+				delete this.userModel.password;							
 			}
 			else {
 				this.message = data.message;

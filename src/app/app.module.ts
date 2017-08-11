@@ -20,7 +20,7 @@ import {UserServiceNew} from './data-table-example/user-services';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { DataTableExampleComponent } from './data-table-example/data-table-example.component';
+import { DataTableExampleComponent, DialogDeleteConfirmation } from './data-table-example/data-table-example.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -35,8 +35,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DashboardComponent,
     ToolbarComponent,
     DataTableExampleComponent,
+    DialogDeleteConfirmation,
     UserFormComponent
   ],
+  entryComponents: [DialogDeleteConfirmation],
   imports: [
     BrowserModule,
     MaterialModule,

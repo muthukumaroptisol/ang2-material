@@ -67,7 +67,9 @@
 		      <md-header-cell *cdkHeaderCellDef> Action </md-header-cell>
 		        <md-cell *cdkCellDef="let row">
 		        <a class="link-color" href="" [routerLink]="['/addUser']" [queryParams]="{id:row.id}" ><i class="material-icons">create</i></a>
-		        <a class="link-color" href=""><i class="material-icons">delete</i></a>
+		        <span (click)="openDialog(row.id)">
+		        	<a class="link-color"><i class="material-icons">delete</i></a>
+		        </span>
 		        </md-cell>  
 		       
 		    </ng-container>

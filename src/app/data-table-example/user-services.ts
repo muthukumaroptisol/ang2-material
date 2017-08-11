@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from "@angular/http";
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 
 @Injectable()
@@ -30,6 +31,13 @@ export class UserServiceNew {
     return this.http
       .put('http://localhost:4040/api/users/'+id,userModel, this.jwt())
       .map((response: Response) => response.json());
+  }
+
+  deleteUserData(id) {
+    return this.http
+      .delete('http://localhost:4040/api/users/'+id, this.jwt())
+      .map(res => res.json())
+      .mergeMap(item => this.getUserData());
   }
 
   private jwt() {

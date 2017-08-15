@@ -1,3 +1,4 @@
+import { LayoutLeftMenuComponent } from '../layout-left-menu/layout-left-menu.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserServiceNew } from './user-services';
 import { ExampleDataSource, ExampleDatabase } from './database';
@@ -15,6 +16,7 @@ import { MdPaginator, MdDialog, MdDialogRef,MdSnackBar } from '@angular/material
 export class DataTableExampleComponent implements OnInit {
   
   @ViewChild(MdPaginator) paginator: MdPaginator;
+  @ViewChild(LayoutLeftMenuComponent) leftMenu: LayoutLeftMenuComponent;
 
   displayedColumns = ['userId', 'firstName', 'lastName', 'email', 'Action'];
   exampleDatabase = new ExampleDatabase();
@@ -34,6 +36,12 @@ export class DataTableExampleComponent implements OnInit {
       this.exampleDatabase.loadData(userResponse.data);        
     });    
   }
+
+  /* for open left menu */
+  toggleSidebar() {
+    this.leftMenu.start.toggle();
+  }
+  
   /* for delete */
   openDialog(id) {
     let dialogRef = this.dialog.open(DialogDeleteConfirmation);

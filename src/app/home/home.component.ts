@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LayoutLeftMenuComponent } from '../layout-left-menu/layout-left-menu.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 // import {AuthenticateService} from "../login/loginService/authenticate.service";
 import { AuthenticationService } from '../_services/index';
 
@@ -10,11 +11,17 @@ import { AuthenticationService } from '../_services/index';
 })
 export class HomeComponent implements OnInit {
   
+  @ViewChild(LayoutLeftMenuComponent) leftMenu: LayoutLeftMenuComponent;
   constructor(private _service:AuthenticationService) { }
 
   ngOnInit() {
     this._service.checkCredentials();
     // this.loadProfiles();
+  }
+
+  /* for open left menu */
+  toggleSidebar() {
+    this.leftMenu.start.toggle();
   }
 
   /*loadProfiles(){

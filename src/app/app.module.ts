@@ -23,6 +23,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DataTableExampleComponent, DialogDeleteConfirmation } from './data-table-example/data-table-example.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ChilddemoComponent } from './childdemo/childdemo.component';
+import { LayoutLeftMenuComponent } from './layout-left-menu/layout-left-menu.component';
+import { LayoutTopMenuComponent } from './layout-top-menu/layout-top-menu.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ToolbarComponent,
     DataTableExampleComponent,
     DialogDeleteConfirmation,
-    UserFormComponent
+    UserFormComponent,
+    ChilddemoComponent,
+    LayoutLeftMenuComponent,
+    LayoutTopMenuComponent
   ],
   entryComponents: [DialogDeleteConfirmation],
   imports: [
@@ -55,6 +61,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
       { path: 'addUser', component: UserFormComponent},
       { path: 'users', component: DataTableExampleComponent},
       { path: '', component: LoginComponent },
+      { path: 'child-demo', component: ChilddemoComponent}
       // { path: '**', component: LoginComponent },
 
     ])
